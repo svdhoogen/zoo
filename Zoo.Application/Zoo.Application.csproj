@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <OutputType>Exe</OutputType>
+        <TargetFramework>netcoreapp3.1</TargetFramework>
+        <RootNamespace>Zoo</RootNamespace>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\Zoo.Core\Zoo.Core.csproj" />
+      <ProjectReference Include="..\Zoo.Data\Zoo.Data.csproj" />
+      <ProjectReference Include="..\Zoo.Services\Zoo.Services.csproj" />
+    </ItemGroup>
+
+</Project>
