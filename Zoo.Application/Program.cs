@@ -1,6 +1,9 @@
 ﻿using System;
+using System.Linq;
 using System.Threading.Tasks;
 using Zoo.Core;
+using Zoo.Core.Enums;
+using Zoo.Core.Services;
 using Zoo.Data;
 using Zoo.Services;
 
@@ -16,36 +19,43 @@ namespace Zoo
         }
 
         /// <summary>
-        /// This method is a workaround for not being able to use async on main
+        /// We log information about zebras & giraffes. This method is a workaround for using async method on main.
         /// </summary>
         /// <param name="args"></param>
         private static async Task MainAsync(string[] args)
         {
-            // Normally, you would automatically handle this with service injection,
-            // but I'm too lazy to implement that right now :)
+            // Normally you would  handle this with service injection, but I'm too lazy to implement that right now :)
             IUnitOfWork unitOfWork = new UnitOfWork();
-            var zebraService = new ZebraService(unitOfWork);
-            var giraffeService = new GiraffeService(unitOfWork);
+            IZebraService zebraService = new ZebraService(unitOfWork);
+            IGiraffeService giraffeService = new GiraffeService(unitOfWork);
 
             // Get zebras & giraffes
             var zebras = await zebraService.GetAllAsync();
             var giraffes = await giraffeService.GetAllAsync();
 
-            // Log some info about zebras and giraffes
-
-            Console.WriteLine($"\nZebras: {zebras.Count}\n");
+            Write($"Total zebras: {zebras.Count}");
+            Write($"Scientific name: {zebras.FirstOrDefault()?.ScientificName}");
+            Write($"There are {zebras.Count(zebra => zebra.Gender == Gender.Male)} male zebras\n");
 
             foreach (var zebra in zebras)
-                Console.Write($"Scientific name: {zebra.ScientificName}" +
-                              $"\nName: {zebra.Name}" +
-                              $"\nAge: {zebra.Age}\n\n");
+            {
+                Write($"Name: {zebra.Name}");
+                Write($"Age & gender: {zebra.Age}, {zebra.Gender}");
+                Write($"Stripes: {zebra.Stripes}\n");
+            }
 
-            Console.WriteLine($"Giraffes: {giraffes.Count}\n");
+            Write($"Total giraffes: {giraffes.Count}");
+            Write($"Scientific name: {giraffes.FirstOrDefault()?.ScientificName}");
+            Write($"There are {giraffes.Count(giraffe => giraffe.Gender == Gender.Female)} female zebras\n");
 
             foreach (var giraffe in giraffes)
-                Console.Write($"Scientific name: {giraffe.ScientificName}" +
-                              $"\nName: {giraffe.Name}" +
-                              $"\nAge: {giraffe.Age}\n\n");
+            {
+                Write($"Name: {giraffe.Name}");
+                Write($"Age & gender: {giraffe.Age}, {giraffe.Gender}");
+                Write($"Neck length: {giraffe.NeckLengthInCm}\n");
+            }
         }
+
+        private static void Write(string content) => Console.WriteLine(content);
     }
 }
