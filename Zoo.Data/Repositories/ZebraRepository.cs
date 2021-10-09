@@ -15,12 +15,6 @@ namespace Zoo.Data.Repositories
             // Normally, you would connect to a database, retrieve data and return that data but for this example
             // we return mock data which we create here.
 
-            // Create enclosure for zebras
-            var enclosure = new Enclosure
-            {
-                Name = "Zebra enclosure",
-            };
-
             // Create list of zebras
             var zebras = new List<Zebra>
             {
@@ -30,7 +24,6 @@ namespace Zoo.Data.Repositories
                     Name = "Zack",
                     Gender = Gender.Male,
                     Birthday = new DateTime(1998, 2, 24),
-                    Enclosure = enclosure
                 },
                 new Zebra
                 {
@@ -38,7 +31,6 @@ namespace Zoo.Data.Repositories
                     Name = "Ron",
                     Gender = Gender.Male,
                     Birthday = new DateTime(2004, 8, 7),
-                    Enclosure = enclosure
                 },
                 new Zebra
                 {
@@ -46,7 +38,6 @@ namespace Zoo.Data.Repositories
                     Name = "Lacy",
                     Gender = Gender.Female,
                     Birthday = new DateTime(2009, 12, 19),
-                    Enclosure = enclosure
                 },
                 new Zebra
                 {
@@ -54,7 +45,6 @@ namespace Zoo.Data.Repositories
                     Name = "Gloria",
                     Gender = Gender.Female,
                     Birthday = new DateTime(2016, 4, 5),
-                    Enclosure = enclosure
                 },
                 new Zebra
                 {
@@ -62,7 +52,6 @@ namespace Zoo.Data.Repositories
                     Name = "Big Joel",
                     Gender = Gender.Male,
                     Birthday = new DateTime(1993, 6, 2),
-                    Enclosure = enclosure
                 },
                 new Zebra
                 {
@@ -70,14 +59,27 @@ namespace Zoo.Data.Repositories
                     Name = "Emma",
                     Gender = Gender.Female,
                     Birthday = new DateTime(1999, 10, 21),
-                    Enclosure = enclosure
                 }
             };
 
-            // Set animals on enclosure
-            enclosure.Animals = new List<Animal>(zebras);
-
             return zebras;
+        }
+
+        /// <inheritdoc />
+        public async Task<Enclosure> GetEnclosureAsync()
+        {
+            var zebras = await GetAllAsync();
+
+            // Create enclosure for giraffes
+            var enclosure = new Enclosure
+            {
+                Name = "Zebra enclosure"
+            };
+
+            foreach (var zebra in zebras)
+                enclosure.AddAnimal(zebra);
+
+            return enclosure;
         }
     }
 }

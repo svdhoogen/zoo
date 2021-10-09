@@ -32,8 +32,6 @@ namespace Zoo.Core.Models
 
         public int Age => CalculateAge();
 
-        public Enclosure Enclosure { get; set; }
-
         /// <summary>
         /// Return the amount of days until the animals next birthday
         /// </summary>
@@ -55,8 +53,7 @@ namespace Zoo.Core.Models
             var now = DateTime.UtcNow;
 
             // We return the years that passed between birthday and current date.
-            // This check makes sure a full year has passed in the overlap between
-            // current date and birthday
+            // This check makes sure a full year has passed in the overlap between current date and birthday
             if (now.Month > Birthday.Month ||
                 now.Month == Birthday.Month &&
                 now.Day >= Birthday.Day)

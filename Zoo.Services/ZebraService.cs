@@ -20,5 +20,11 @@ namespace Zoo.Services
         {
             return await _unitOfWork.Zebras.GetAllAsync();
         }
+
+        /// <inheritdoc />
+        public async Task<Enclosure> GetEnclosureAsync()
+        {
+            return await _unitOfWork.Zebras.GetEnclosureAsync();
+        }
     }
 }

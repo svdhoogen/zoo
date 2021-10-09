@@ -11,5 +11,11 @@ namespace Zoo.Core.Repositories
         /// </summary>
         /// <returns></returns>
         Task<List<Giraffe>> GetAllAsync();
+
+        /// <summary>
+        /// Returns giraffe enclosure.
+        /// </summary>
+        /// <returns></returns>
+        Task<Enclosure> GetEnclosureAsync();
     }
 }

@@ -15,12 +15,6 @@ namespace Zoo.Data.Repositories
             // Normally, you would connect to a database, retrieve data and return that data but for this example
             // we return mock data which we create here.
 
-            // Create enclosure for giraffes
-            var enclosure = new Enclosure
-            {
-                Name = "Giraffe enclosure",
-            };
-
             // Create list of giraffes
             var giraffes = new List<Giraffe>
             {
@@ -30,7 +24,6 @@ namespace Zoo.Data.Repositories
                     Name = "Joe",
                     Gender = Gender.Male,
                     Birthday = new DateTime(2009, 2, 16),
-                    Enclosure = enclosure
                 },
                 new Giraffe
                 {
@@ -38,7 +31,6 @@ namespace Zoo.Data.Repositories
                     Name = "Gemima",
                     Gender = Gender.Female,
                     Birthday = new DateTime(2007, 8, 1),
-                    Enclosure = enclosure
                 },
                 new Giraffe
                 {
@@ -46,7 +38,6 @@ namespace Zoo.Data.Repositories
                     Name = "Bob",
                     Gender = Gender.Male,
                     Birthday = new DateTime(2019, 1, 30),
-                    Enclosure = enclosure
                 },
                 new Giraffe
                 {
@@ -54,7 +45,6 @@ namespace Zoo.Data.Repositories
                     Name = "Bob",
                     Gender = Gender.Male,
                     Birthday = new DateTime(2018, 7, 13),
-                    Enclosure = enclosure
                 },
                 new Giraffe
                 {
@@ -62,14 +52,27 @@ namespace Zoo.Data.Repositories
                     Name = "Big Bertha",
                     Gender = Gender.Female,
                     Birthday = new DateTime(2000, 11, 27),
-                    Enclosure = enclosure
                 }
             };
 
-            // Set animals on enclosure
-            enclosure.Animals = new List<Animal>(giraffes);
-
             return giraffes;
+        }
+
+        /// <inheritdoc />
+        public async Task<Enclosure> GetEnclosureAsync()
+        {
+            var giraffes = await GetAllAsync();
+
+            // Create enclosure for giraffes
+            var enclosure = new Enclosure
+            {
+                Name = "Giraffe enclosure"
+            };
+
+            foreach (var giraffe in giraffes)
+                enclosure.AddAnimal(giraffe);
+
+            return enclosure;
         }
     }
 }
