@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 
 namespace Zoo.Core.Models
 {
@@ -37,6 +38,6 @@ namespace Zoo.Core.Models
         /// Returns all animals in enclosure
         /// </summary>
         /// <returns></returns>
-        public List<Animal> GetAnimals() => _animals;
+        public ReadOnlyCollection<Animal> GetAnimals() => new ReadOnlyCollection<Animal>(_animals);
     }
 }
