@@ -18,47 +18,29 @@ namespace Zoo.Data.Repositories
             // Create list of zebras
             var zebras = new List<Zebra>
             {
-                new Zebra
+                new Zebra(Gender.Male, new DateTime(1998, 2, 24), 25)
                 {
-                    Stripes = 25,
-                    Name = "Zack",
-                    Gender = Gender.Male,
-                    Birthday = new DateTime(1998, 2, 24),
+                    Name = "Zack"
                 },
-                new Zebra
+                new Zebra(Gender.Male, new DateTime(2004, 8, 7), 24)
                 {
-                    Stripes = 24,
-                    Name = "Ron",
-                    Gender = Gender.Male,
-                    Birthday = new DateTime(2004, 8, 7),
+                    Name = "Ron"
                 },
-                new Zebra
+                new Zebra(Gender.Female, new DateTime(2009, 12, 19), 27)
                 {
-                    Stripes = 27,
-                    Name = "Lacy",
-                    Gender = Gender.Female,
-                    Birthday = new DateTime(2009, 12, 19),
+                    Name = "Lacy"
                 },
-                new Zebra
+                new Zebra(Gender.Female, new DateTime(2016, 4, 5), 25)
                 {
-                    Stripes = 25,
-                    Name = "Gloria",
-                    Gender = Gender.Female,
-                    Birthday = new DateTime(2016, 4, 5),
+                    Name = "Gloria"
                 },
-                new Zebra
+                new Zebra(Gender.Male, new DateTime(1993, 6, 2), 30)
                 {
-                    Stripes = 30,
-                    Name = "Big Joel",
-                    Gender = Gender.Male,
-                    Birthday = new DateTime(1993, 6, 2),
+                    Name = "Big Joel"
                 },
-                new Zebra
+                new Zebra(Gender.Female, new DateTime(1999, 10, 21), 23)
                 {
-                    Stripes = 23,
-                    Name = "Emma",
-                    Gender = Gender.Female,
-                    Birthday = new DateTime(1999, 10, 21),
+                    Name = "Emma"
                 }
             };
 

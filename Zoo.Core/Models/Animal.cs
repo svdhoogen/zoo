@@ -8,27 +8,30 @@ namespace Zoo.Core.Models
         /// <summary>
         /// Preferably use constructor with scientific name
         /// </summary>
-        protected Animal()
+        protected Animal(Gender gender, DateTime birthday)
         {
             ScientificName = "Unknown";
+            Gender = gender;
+            Birthday = birthday;
         }
 
         /// <summary>
-        /// Constructor which sets animal's scientific name
+        /// Constructor which sets various properties
         /// </summary>
-        /// <param name="scientificName"></param>
-        protected Animal(string scientificName)
+        protected Animal(string scientificName, Gender gender, DateTime birthday)
         {
             ScientificName = scientificName;
+            Gender = gender;
+            Birthday = birthday;
         }
 
         public string ScientificName { get; }
 
         public string Name { get; set; }
 
-        public Gender Gender { get; set; }
+        public Gender Gender { get; }
 
-        public DateTime Birthday { get; set; }
+        public DateTime Birthday { get; }
 
         public int Age => CalculateAge();
 

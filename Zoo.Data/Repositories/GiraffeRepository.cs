@@ -18,40 +18,30 @@ namespace Zoo.Data.Repositories
             // Create list of giraffes
             var giraffes = new List<Giraffe>
             {
-                new Giraffe
+                new Giraffe(Gender.Male, new DateTime(2009, 2, 16))
                 {
                     NeckLengthInCm = 210,
-                    Name = "Joe",
-                    Gender = Gender.Male,
-                    Birthday = new DateTime(2009, 2, 16),
+                    Name = "Joe"
                 },
-                new Giraffe
+                new Giraffe(Gender.Female, new DateTime(2007, 8, 1))
                 {
                     NeckLengthInCm = 194,
-                    Name = "Gemima",
-                    Gender = Gender.Female,
-                    Birthday = new DateTime(2007, 8, 1),
+                    Name = "Gemima"
                 },
-                new Giraffe
+                new Giraffe(Gender.Male, new DateTime(2019, 1, 30))
                 {
                     NeckLengthInCm = 129,
-                    Name = "Bob",
-                    Gender = Gender.Male,
-                    Birthday = new DateTime(2019, 1, 30),
+                    Name = "Bob"
                 },
-                new Giraffe
+                new Giraffe(Gender.Male, new DateTime(2018, 7, 13))
                 {
                     NeckLengthInCm = 143,
-                    Name = "Bob",
-                    Gender = Gender.Male,
-                    Birthday = new DateTime(2018, 7, 13),
+                    Name = "Bob"
                 },
-                new Giraffe
+                new Giraffe(Gender.Female, new DateTime(2000, 11, 27))
                 {
                     NeckLengthInCm = 238,
-                    Name = "Big Bertha",
-                    Gender = Gender.Female,
-                    Birthday = new DateTime(2000, 11, 27),
+                    Name = "Big Bertha"
                 }
             };
 

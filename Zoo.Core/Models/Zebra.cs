@@ -1,9 +1,18 @@
+using System;
+using Zoo.Core.Enums;
+
 namespace Zoo.Core.Models
 {
     public class Zebra : Animal
     {
-        public Zebra() : base("Equus quagga") { }
+        /// <summary>
+        /// Sets stripes
+        /// </summary>
+        public Zebra(Gender gender, DateTime birthday, int stripes) : base("Equus quagga", gender, birthday)
+        {
+            Stripes = stripes;
+        }
 
-        public int Stripes { get; set; }
+        public int Stripes { get; }
     }
 }
