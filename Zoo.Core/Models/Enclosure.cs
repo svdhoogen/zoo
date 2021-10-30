@@ -13,12 +13,7 @@ namespace Zoo.Core.Models
             _animals = new List<Animal>();
         }
 
-        private string _name;
-        public string Name
-        {
-            get => _name;
-            set => _name = value;
-        }
+        public string Name { get; set; }
 
         private List<Animal> _animals;
 
