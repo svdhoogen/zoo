@@ -3,7 +3,7 @@ using System.Collections.ObjectModel;
 
 namespace Zoo.Core.Models
 {
-    public class Enclosure
+    public class Enclosure : BaseModel
     {
         /// <summary>
         /// Constructor

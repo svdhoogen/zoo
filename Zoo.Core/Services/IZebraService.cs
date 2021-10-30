@@ -11,11 +11,5 @@ namespace Zoo.Core.Services
         /// </summary>
         /// <returns></returns>
         Task<List<Zebra>> GetAllAsync();
-
-        /// <summary>
-        /// Returns zebra enclosure.
-        /// </summary>
-        /// <returns></returns>
-        Task<Enclosure> GetEnclosureAsync();
     }
 }

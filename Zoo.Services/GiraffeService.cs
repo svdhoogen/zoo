@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using Zoo.Core;
+using Microsoft.EntityFrameworkCore;
+using Zoo.Core.Data;
 using Zoo.Core.Models;
 using Zoo.Core.Services;
 
@@ -18,13 +19,7 @@ namespace Zoo.Services
         /// <inheritdoc />
         public async Task<List<Giraffe>> GetAllAsync()
         {
-            return await _unitOfWork.Giraffes.GetAllAsync();
-        }
-
-        /// <inheritdoc />
-        public async Task<Enclosure> GetEnclosureAsync()
-        {
-            return await _unitOfWork.Giraffes.GetEnclosureAsync();
+            return await _unitOfWork.GetAll<Giraffe>(tracking: false).ToListAsync();
         }
     }
 }
