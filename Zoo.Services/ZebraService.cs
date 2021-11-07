@@ -54,7 +54,7 @@ namespace Zoo.Services
             zebraDb.EnclosureId = zebra.EnclosureId;
 
             // Update zebra
-            _unitOfWork.Update(zebra);
+            _unitOfWork.Update(zebraDb);
             await _unitOfWork.SaveChangesAsync();
         }
 

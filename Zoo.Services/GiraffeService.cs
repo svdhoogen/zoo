@@ -55,7 +55,7 @@ namespace Zoo.Services
             giraffeDb.EnclosureId = giraffe.EnclosureId;
 
             // Update giraffe
-            _unitOfWork.Update(giraffe);
+            _unitOfWork.Update(giraffeDb);
             await _unitOfWork.SaveChangesAsync();
         }
 

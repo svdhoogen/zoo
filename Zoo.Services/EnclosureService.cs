@@ -53,7 +53,7 @@ namespace Zoo.Services
             enclosureDb.Name = enclosure.Name;
 
             // Update enclosure
-            _unitOfWork.Update(enclosure);
+            _unitOfWork.Update(enclosureDb);
             await _unitOfWork.SaveChangesAsync();
         }
 
