@@ -27,11 +27,11 @@ namespace Zoo.Tests
             // Create zebra
             Zebra = new Zebra
             {
-                Name = "Joe",
-                Gender = Gender.Male,
-                Birthday = new (2015, 5, 5),
+                Name = "Nero",
+                Gender = Gender.Female,
+                Birthday = new (2012, 5, 5),
                 Stripes = 24,
-                EnclosureId = 1
+                EnclosureId = 2
             };
         }
 
@@ -63,7 +63,7 @@ namespace Zoo.Tests
             Assert.IsTrue(zebras.Any(zebra => zebra.Id == Zebra.Id));
 
             // Update zebra
-            zebra.Name = "Joel";
+            zebra.Name = "Nemo";
             await ZebraService.UpdateAsync(zebra);
 
             UnitOfWork.DetachEntity(zebra);

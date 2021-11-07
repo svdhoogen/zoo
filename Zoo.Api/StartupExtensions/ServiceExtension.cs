@@ -36,6 +36,7 @@ namespace Zoo.Api.StartupExtensions
             services.AddScoped<ISeederService, SeederService>();
             services.AddScoped<IZebraService, ZebraService>();
             services.AddScoped<IGiraffeService, GiraffeService>();
+            services.AddScoped<IEnclosureService, EnclosureService>();
         }
 
         /// <summary>
@@ -49,6 +50,7 @@ namespace Zoo.Api.StartupExtensions
             {
                 config.AddProfile(new ZebraProfile());
                 config.AddProfile(new GiraffeProfile());
+                config.AddProfile(new EnclosureProfile());
             });
 
             // Create mapper instance
