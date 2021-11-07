@@ -17,8 +17,13 @@ namespace Zoo.Api.StartupExtensions
     {
         public static void AddServices(this IServiceCollection services, IConfiguration configuration)
         {
+            // Get connection string
+            var connectionString = configuration.GetSection("ConnectionStrings").GetValue<string>("Zoo");
+            if (string.IsNullOrEmpty(connectionString))
+                throw new Exception("Cannot get zoo connection string from app settings");
+
             // Create & add database context
-            services.AddSingleton(DatabaseContextFactory.CreateDbContext(configuration));
+            services.AddDbContext<DatabaseContext>(opt => opt.UseSqlServer(connectionString));
 
             // Create & add automapper
             services.AddSingleton(CreateMapper());

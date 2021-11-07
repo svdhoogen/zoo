@@ -83,7 +83,7 @@ namespace Zoo.Api.Controllers
         /// </summary>
         /// <returns></returns>
         [HttpDelete("{id:int}")]
-        public async Task<IActionResult> Delete([FromQuery] int id)
+        public async Task<IActionResult> Delete(int id)
         {
             // Delete zebras
             await _zebraService.DeleteAsync(id);
