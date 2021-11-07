@@ -48,6 +48,7 @@ namespace Zoo.Api.StartupExtensions
             var mapperConfig = new MapperConfiguration(config =>
             {
                 config.AddProfile(new ZebraProfile());
+                config.AddProfile(new GiraffeProfile());
             });
 
             // Create mapper instance
