@@ -20,16 +20,18 @@ namespace Zoo.Core.Data
 
         Task AddRangeAsync<TModel>(List<TModel> models) where TModel : class, IModel;
 
-        void UpdateAsync<TModel>(TModel model) where TModel : class, IModel;
+        void Update<TModel>(TModel model) where TModel : class, IModel;
 
-        void UpdateRangeAsync<TModel>(List<TModel> models) where TModel : class, IModel;
+        void UpdateRange<TModel>(List<TModel> models) where TModel : class, IModel;
 
-        void RemoveAsync<TModel>(TModel model) where TModel : class, IModel;
+        void Remove<TModel>(TModel model) where TModel : class, IModel;
 
-        void RemoveRangeAsync<TModel>(List<TModel> models) where TModel : class, IModel;
+        void RemoveRange<TModel>(List<TModel> models) where TModel : class, IModel;
 
         Task SaveChangesAsync();
 
         Task<IDbContextTransaction> BeginTransactionAsync();
+
+        void DetachEntity<TModel>(TModel model) where TModel : class, IModel;
     }
 }

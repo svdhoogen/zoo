@@ -389,3 +389,4 @@ FodyWeavers.xsd
 Zoo.Data/appsettings.Development.json
 Zoo.Api/appsettings.json
 Zoo.Api/appsettings.Development.json
+Zoo.Tests/appsettings.Development.json

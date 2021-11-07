@@ -20,6 +20,16 @@
 
     <ItemGroup>
       <ProjectReference Include="..\Zoo.Core\Zoo.Core.csproj" />
+      <ProjectReference Include="..\Zoo.Data\Zoo.Data.csproj" />
+      <ProjectReference Include="..\Zoo.Services\Zoo.Services.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Content Include="appsettings.Development.json">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
     </ItemGroup>
 
 </Project>

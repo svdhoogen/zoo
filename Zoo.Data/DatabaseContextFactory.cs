@@ -13,14 +13,20 @@ namespace Zoo.Data
         /// </summary>
         /// <param name="args"></param>
         /// <returns></returns>
-        public DatabaseContext CreateDbContext(string[] args)
+        public DatabaseContext CreateDbContext(string[] args) => CreateDbContext();
+
+        /// <summary>
+        /// Creates db context from appsettings file
+        /// </summary>
+        /// <returns></returns>
+        public static DatabaseContext CreateDbContext(string appsettingsName = "appsettings.Development.json")
         {
-            Console.WriteLine("Creating IConfiguration to read appsettings.Development.json...");
+            Console.WriteLine($"Creating IConfiguration to read {appsettingsName}...");
 
             // Prepare configuration builder
             var configuration = new ConfigurationBuilder()
                 .SetBasePath(Path.Combine(Directory.GetCurrentDirectory()))
-                .AddJsonFile("appsettings.Development.json", optional: false)
+                .AddJsonFile(appsettingsName, optional: false)
                 .Build();
 
             // Create db context
