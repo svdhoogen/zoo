@@ -25,7 +25,7 @@ namespace Zoo.Api.Controllers
         /// </summary>
         /// <returns></returns>
         [HttpGet]
-        public async Task<IActionResult> Get()
+        public async Task<IActionResult> GetAll()
         {
             // Get zebras
             var zebras = await _zebraService.GetAllAsync();
@@ -50,11 +50,11 @@ namespace Zoo.Api.Controllers
         /// POST: /zebra/create
         /// </summary>
         /// <returns></returns>
-        [HttpPost("/create")]
+        [HttpPost("create")]
         public async Task<IActionResult> Create(ViewModels.Zebra.Create.RequestViewModel request)
         {
             // Map zebra
-            var zebra = _mapper.Map<Zebra>(request);
+            var zebra = _mapper.Map<ViewModels.Zebra.Create.RequestViewModel, Zebra>(request);
 
             // Create zebras
             await _zebraService.CreateAsync(zebra);
@@ -66,11 +66,11 @@ namespace Zoo.Api.Controllers
         /// PUT: /zebra/update
         /// </summary>
         /// <returns></returns>
-        [HttpPut("/update")]
+        [HttpPut("update")]
         public async Task<IActionResult> Update(ViewModels.Zebra.Update.RequestViewModel request)
         {
             // Map zebra
-            var zebra = _mapper.Map<Zebra>(request);
+            var zebra = _mapper.Map<ViewModels.Zebra.Update.RequestViewModel, Zebra>(request);
 
             // Update zebras
             await _zebraService.UpdateAsync(zebra);

@@ -5,7 +5,7 @@ namespace Zoo.Api.ViewModels.Zebra.Update
         public int Id { get; set; }
 
         public string Name { get; set; }
-        
-        public int? EnclosureId { get; set; }
+
+        public int EnclosureId { get; set; }
     }
 }

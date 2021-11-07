@@ -13,6 +13,6 @@ namespace Zoo.Api.ViewModels.Zebra.Create
 
         public int Stripes { get; init; }
 
-        public int? EnclosureId { get; set; }
+        public int EnclosureId { get; set; }
     }
 }

@@ -1,7 +1,10 @@
+using System;
 using AutoMapper;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Zoo.Api.MapperProfiles;
 using Zoo.Api.Policies;
 using Zoo.Core.Data;
 using Zoo.Core.Services;
@@ -39,7 +42,7 @@ namespace Zoo.Api.StartupExtensions
             // Create auto mapper config
             var mapperConfig = new MapperConfiguration(config =>
             {
-                // Add profiles here like so: config.AddProfile(new ExampleProfile());
+                config.AddProfile(new ZebraProfile());
             });
 
             // Create mapper instance
