@@ -47,10 +47,10 @@ namespace Zoo.Api.Controllers
         }
 
         /// <summary>
-        /// POST: /enclosure/create
+        /// POST: /enclosure
         /// </summary>
         /// <returns></returns>
-        [HttpPost("create")]
+        [HttpPost]
         public async Task<IActionResult> Create(ViewModels.Enclosure.Create.RequestViewModel request)
         {
             // Map enclosure
@@ -63,10 +63,10 @@ namespace Zoo.Api.Controllers
         }
 
         /// <summary>
-        /// PUT: /enclosure/update
+        /// PUT: /enclosure
         /// </summary>
         /// <returns></returns>
-        [HttpPut("update")]
+        [HttpPut]
         public async Task<IActionResult> Update(ViewModels.Enclosure.Update.RequestViewModel request)
         {
             // Map enclosure

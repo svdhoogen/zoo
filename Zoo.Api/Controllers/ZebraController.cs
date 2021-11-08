@@ -47,10 +47,10 @@ namespace Zoo.Api.Controllers
         }
 
         /// <summary>
-        /// POST: /zebra/create
+        /// POST: /zebra
         /// </summary>
         /// <returns></returns>
-        [HttpPost("create")]
+        [HttpPost]
         public async Task<IActionResult> Create(ViewModels.Zebra.Create.RequestViewModel request)
         {
             // Map zebra
@@ -63,10 +63,10 @@ namespace Zoo.Api.Controllers
         }
 
         /// <summary>
-        /// PUT: /zebra/update
+        /// PUT: /zebra
         /// </summary>
         /// <returns></returns>
-        [HttpPut("update")]
+        [HttpPut]
         public async Task<IActionResult> Update(ViewModels.Zebra.Update.RequestViewModel request)
         {
             // Map zebra

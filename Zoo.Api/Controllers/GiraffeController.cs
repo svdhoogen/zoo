@@ -47,10 +47,10 @@ namespace Zoo.Api.Controllers
         }
 
         /// <summary>
-        /// POST: /giraffe/create
+        /// POST: /giraffe
         /// </summary>
         /// <returns></returns>
-        [HttpPost("create")]
+        [HttpPost]
         public async Task<IActionResult> Create(ViewModels.Giraffe.Create.RequestViewModel request)
         {
             // Map giraffe
@@ -63,10 +63,10 @@ namespace Zoo.Api.Controllers
         }
 
         /// <summary>
-        /// PUT: /giraffe/update
+        /// PUT: /giraffe
         /// </summary>
         /// <returns></returns>
-        [HttpPut("update")]
+        [HttpPut]
         public async Task<IActionResult> Update(ViewModels.Giraffe.Update.RequestViewModel request)
         {
             // Map giraffe
