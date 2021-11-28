@@ -9,12 +9,18 @@ namespace Zoo.Tests
     public class ZebraTests
     {
         private Zebra _zebra { get; set; }
-        private DateTime _birthday { get; } = new DateTime(2015, 5, 5);
+        private DateTime _birthday { get; } = new (2015, 5, 5);
 
         [SetUp]
         public void Setup()
         {
-            _zebra = new Zebra(Gender.Male, _birthday, stripes: 24);
+            _zebra = new Zebra
+            {
+                Name = "Joe",
+                Gender = Gender.Male,
+                Birthday = _birthday,
+                Stripes = 24
+            };
         }
 
         [Test]

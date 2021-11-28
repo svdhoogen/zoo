@@ -4,37 +4,37 @@ using Zoo.Core.Models;
 
 namespace Zoo.Core.Services
 {
-    public interface IGiraffeService
+    public interface IEnclosureService
     {
         /// <summary>
-        /// Returns a list of all giraffes.
+        /// Returns a list of all enclosures.
         /// </summary>
         /// <returns></returns>
-        Task<List<Giraffe>> GetAllAsync();
+        Task<List<Enclosure>> GetAllAsync();
 
         /// <summary>
-        /// Returns a giraffe by id.
+        /// Returns a enclosure by id.
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        Task<Giraffe> GetAsync(int id);
+        Task<Enclosure> GetAsync(int id);
 
         /// <summary>
-        /// Creates a new giraffe instance.
+        /// Creates a new enclosure instance.
         /// </summary>
-        /// <param name="giraffe"></param>
+        /// <param name="enclosure"></param>
         /// <returns></returns>
-        Task CreateAsync(Giraffe giraffe);
+        Task CreateAsync(Enclosure enclosure);
 
         /// <summary>
-        /// Updates a giraffe.
+        /// Updates a enclosure.
         /// </summary>
-        /// <param name="giraffe"></param>
+        /// <param name="enclosure"></param>
         /// <returns></returns>
-        Task UpdateAsync(Giraffe giraffe);
+        Task UpdateAsync(Enclosure enclosure);
 
         /// <summary>
-        /// Deletes a giraffe by id.
+        /// Deletes a enclosure by id.
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>

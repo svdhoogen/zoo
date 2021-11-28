@@ -3,37 +3,37 @@ using Zoo.Core.Enums;
 
 namespace Zoo.Core.Models
 {
-    public abstract class Animal
+    public abstract class Animal : BaseModel
     {
         /// <summary>
-        /// Preferably use constructor with scientific name
+        /// Constructor
         /// </summary>
-        protected Animal(Gender gender, DateTime birthday)
+        protected Animal()
         {
             ScientificName = "Unknown";
-            Gender = gender;
-            Birthday = birthday;
         }
 
         /// <summary>
-        /// Constructor which sets various properties
+        /// Constructor
         /// </summary>
-        protected Animal(string scientificName, Gender gender, DateTime birthday)
+        protected Animal(string scientificName)
         {
             ScientificName = scientificName;
-            Gender = gender;
-            Birthday = birthday;
         }
 
         public string ScientificName { get; }
 
         public string Name { get; set; }
 
-        public Gender Gender { get; }
+        public Gender Gender { get; init; }
 
-        public DateTime Birthday { get; }
+        public DateTime Birthday { get; init; }
 
         public int Age => CalculateAge();
+
+        public int EnclosureId { get; set; }
+
+        public Enclosure Enclosure { get; set; }
 
         /// <summary>
         /// Return the amount of days until the animals next birthday
