@@ -13,9 +13,31 @@ namespace Zoo.Core.Services
         Task<List<Zebra>> GetAllAsync();
 
         /// <summary>
-        /// Returns zebra enclosure.
+        /// Returns a zebra by id.
         /// </summary>
+        /// <param name="id"></param>
         /// <returns></returns>
-        Task<Enclosure> GetEnclosureAsync();
+        Task<Zebra> GetAsync(int id);
+
+        /// <summary>
+        /// Creates a new zebra instance.
+        /// </summary>
+        /// <param name="zebra"></param>
+        /// <returns></returns>
+        Task CreateAsync(Zebra zebra);
+
+        /// <summary>
+        /// Updates a zebra.
+        /// </summary>
+        /// <param name="zebra"></param>
+        /// <returns></returns>
+        Task UpdateAsync(Zebra zebra);
+
+        /// <summary>
+        /// Deletes a zebra by id.
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        Task DeleteAsync(int id);
     }
 }
