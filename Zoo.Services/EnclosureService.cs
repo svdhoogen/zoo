@@ -61,7 +61,8 @@ namespace Zoo.Services
         public async Task DeleteAsync(int id)
         {
             // Get enclosure
-            var enclosure = await GetAsync(id);
+            var enclosure = await _unitOfWork.GetAll<Enclosure>(tracking: true)
+                .FirstOrDefaultAsync(enclosure => enclosure.Id == id);
 
             // Remove enclosure
             _unitOfWork.Remove(enclosure);
