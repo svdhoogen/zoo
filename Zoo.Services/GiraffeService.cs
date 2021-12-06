@@ -63,7 +63,8 @@ namespace Zoo.Services
         public async Task DeleteAsync(int id)
         {
             // Get giraffe
-            var giraffe = await GetAsync(id);
+            var giraffe = await _unitOfWork.GetAll<Giraffe>(tracking: true)
+                .FirstOrDefaultAsync(giraffe => giraffe.Id == id);
 
             // Remove giraffe
             _unitOfWork.Remove(giraffe);

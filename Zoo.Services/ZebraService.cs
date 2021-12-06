@@ -62,7 +62,8 @@ namespace Zoo.Services
         public async Task DeleteAsync(int id)
         {
             // Get zebra
-            var zebra = await GetAsync(id);
+            var zebra = await _unitOfWork.GetAll<Zebra>(tracking: true)
+                .FirstOrDefaultAsync(zebra => zebra.Id == id);
 
             // Remove zebra
             _unitOfWork.Remove(zebra);
